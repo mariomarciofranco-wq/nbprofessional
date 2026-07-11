@@ -47,7 +47,7 @@ export default function Header({ className }: HeaderProps) {
         <Container className="h-full">
           <div className="flex items-center justify-between h-full">
             {/* Mobile: hamburger + logo */}
-            <div className="flex items-center gap-3 md:hidden">
+            <div className="flex items-center gap-3 md:hidden -ml-1">
               <button
                 onClick={() => setMobileOpen(true)}
                 aria-label="Open menu"
@@ -59,7 +59,7 @@ export default function Header({ className }: HeaderProps) {
             </div>
 
             {/* Desktop: logo */}
-            <div className="hidden md:block">
+            <div className="hidden md:block -ml-4 md:-ml-8">
               <Logo variant="full" size={scrolled ? 'sm' : 'md'} />
             </div>
 
