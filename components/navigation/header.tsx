@@ -97,7 +97,7 @@ export default function Header({ className }: HeaderProps) {
       </nav>
 
       {/* Institutional bar */}
-      <div className={cn('hidden md:flex items-center justify-center gap-6 h-[34px] bg-[#F5F0EB] transition-all duration-300 overflow-hidden', scrolled && 'h-0')}>
+      <div className="hidden md:flex items-center justify-center gap-6 h-[34px] bg-[#F5F0EB]">
         {institutionalLinks.map((link) => (
           <Link
             key={link.label}
