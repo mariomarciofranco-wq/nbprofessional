@@ -58,14 +58,18 @@ export default function HeroBanner({ className }: HeroBannerProps) {
             </div>
           </div>
 
-          {/* Image area */}
+          {/* Video area */}
           <div className="flex-1 mt-12 md:mt-0 flex justify-center md:justify-end">
-            <div className="relative w-[320px] h-[320px] md:w-[420px] md:h-[420px] rounded-full bg-gradient-to-br from-[#C8A45C]/20 via-[#C8A45C]/5 to-transparent flex items-center justify-center">
-              <div className="w-[260px] h-[260px] md:w-[360px] md:h-[360px] rounded-full bg-[#1a1a1a] border border-white/[0.06] flex items-center justify-center">
-                <span className="text-white/10 text-[11px] uppercase tracking-[0.2em]">
-                  Hero Image
-                </span>
-              </div>
+            <div className="relative w-[320px] h-[320px] md:w-[420px] md:h-[420px] rounded-full overflow-hidden bg-gradient-to-br from-[#C8A45C]/20 via-[#C8A45C]/5 to-transparent">
+              <video
+                autoPlay
+                muted
+                loop
+                playsInline
+                className="w-full h-full object-cover opacity-80"
+              >
+                <source src="/videos/video01.mp4" type="video/mp4" />
+              </video>
             </div>
           </div>
         </div>
