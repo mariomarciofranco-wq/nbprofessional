@@ -11,7 +11,6 @@ import MobileMenu from './mobile-menu'
 import { mainMenuItems, institutionalLinks } from '@/config/navigation'
 
 const topBarMessages = [
-  { id: 1, text: 'Frete grátis Sul e Sudeste acima de R$ 299,00' },
   { id: 2, text: '6x sem juros em compras acima de R$ 200,00' },
   { id: 3, text: '10% OFF na primeira compra com o cupom NB10' },
 ]
