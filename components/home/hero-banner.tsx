@@ -22,7 +22,7 @@ export default function HeroBanner({ className }: HeroBannerProps) {
       <div className="absolute top-0 right-0 w-[40%] h-full bg-gradient-to-bl from-[#C8A45C]/10 via-transparent to-transparent" />
 
       <Container className="relative h-full">
-        <div className="flex flex-col md:flex-row items-center min-h-[85vh] md:min-h-[90vh] py-20 md:py-0">
+        <div className="flex flex-col md:flex-row items-center min-h-[85vh] md:min-h-[90vh] py-24 md:py-0">
           {/* Text content */}
           <div className="flex-1 text-center md:text-left">
             {/* Badge */}

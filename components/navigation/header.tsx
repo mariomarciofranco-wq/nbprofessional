@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import Link from 'next/link'
 import { Search, User, ShoppingBag, Menu } from 'lucide-react'
 import { cn } from '@/lib/utils'
@@ -22,14 +22,30 @@ interface HeaderProps {
 
 export default function Header({ className }: HeaderProps) {
   const [mobileOpen, setMobileOpen] = useState(false)
+  const [scrolled, setScrolled] = useState(false)
+
+  useEffect(() => {
+    function handleScroll() {
+      setScrolled(window.scrollY > 60)
+    }
+    window.addEventListener('scroll', handleScroll, { passive: true })
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [])
 
   return (
-    <header className={cn('relative', className)}>
+    <header className={cn('sticky top-0 z-50', className)}>
       <TopBar messages={topBarMessages} />
 
-      <nav className="bg-white border-b border-[#F0EDE9]" role="navigation" aria-label="Main navigation">
-        <Container>
-          <div className="flex items-center justify-between h-[68px] md:h-[76px]">
+      <nav
+        className={cn(
+          'bg-white border-b border-[#F0EDE9] transition-all duration-300',
+          scrolled ? 'h-[68px] md:h-[76px]' : 'h-[76px] md:h-[96px]',
+        )}
+        role="navigation"
+        aria-label="Main navigation"
+      >
+        <Container className="h-full">
+          <div className="flex items-center justify-between h-full">
             {/* Mobile: hamburger + logo */}
             <div className="flex items-center gap-3 md:hidden">
               <button
@@ -39,12 +55,12 @@ export default function Header({ className }: HeaderProps) {
               >
                 <Menu className="w-5 h-5 text-[#0A0A0A]" />
               </button>
-              <Logo variant="full" size="sm" />
+              <Logo variant="full" size={scrolled ? 'sm' : 'sm'} />
             </div>
 
             {/* Desktop: logo */}
             <div className="hidden md:block">
-              <Logo variant="full" size="md" />
+              <Logo variant="full" size={scrolled ? 'sm' : 'md'} />
             </div>
 
             {/* Desktop: nav links */}
@@ -81,7 +97,7 @@ export default function Header({ className }: HeaderProps) {
         </Container>
       </nav>
 
-      {/* Institutional bar (mobile) */}
+      {/* Institutional bar */}
       <div className="hidden md:flex items-center justify-center gap-6 h-9 bg-[#F5F0EB]">
         {institutionalLinks.map((link) => (
           <Link

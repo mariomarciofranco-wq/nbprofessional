@@ -12,9 +12,9 @@ interface LogoProps {
 }
 
 const sizeMap: Record<LogoSize, { width: number; height: number }> = {
-  sm: { width: 140, height: 36 },
-  md: { width: 180, height: 46 },
-  lg: { width: 200, height: 52 },
+  sm: { width: 160, height: 44 },
+  md: { width: 200, height: 54 },
+  lg: { width: 240, height: 64 },
 }
 
 export function Logo({
