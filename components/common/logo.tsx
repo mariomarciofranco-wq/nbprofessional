@@ -1,42 +1,43 @@
-'use client'
-
 import Link from 'next/link'
+import Image from 'next/image'
 import { cn } from '@/lib/utils'
 
-type LogoVariant = 'full' | 'icon'
 type LogoSize = 'sm' | 'md' | 'lg'
 
 interface LogoProps {
-  variant: LogoVariant
+  variant?: 'full' | 'icon'
   size?: LogoSize
   className?: string
   transparent?: boolean
 }
 
-const sizeMap: Record<LogoSize, string> = {
-  sm: 'text-[16px]',
-  md: 'text-[20px]',
-  lg: 'text-[28px]',
+const heightMap: Record<LogoSize, number> = {
+  sm: 36,
+  md: 46,
+  lg: 52,
 }
 
 export function Logo({
-  variant,
   size = 'md',
   className,
-  transparent = false,
 }: LogoProps) {
+  const h = heightMap[size]
+
   return (
     <Link
       href="/"
-      className={cn(
-        'font-medium italic',
-        transparent ? 'text-white' : 'text-[#0A0A0A]',
-        sizeMap[size],
-        className,
-      )}
-      style={{ fontFamily: 'Cormorant Garamond' }}
+      className={cn('inline-flex items-center shrink-0 relative', className)}
+      style={{ height: h, width: 'auto' }}
+      title="NB Professional - Cosméticos Profissionais"
     >
-      {variant === 'full' ? 'NB Professional' : 'NB'}
+      <Image
+        src="/imagens/logo-oficial.png"
+        alt="NB Professional - Cosméticos Profissionais"
+        fill
+        sizes="200px"
+        className="object-contain object-left"
+        priority
+      />
     </Link>
   )
 }
