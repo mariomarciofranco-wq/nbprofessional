@@ -49,7 +49,7 @@ export default function CategoryShowcase({ className }: CategoryShowcaseProps) {
     <Section
       title="Categorias"
       subtitle="Encontre a linha certa para o seu tipo de cabelo"
-      spacing="md"
+      spacing="sm"
       className={className}
     >
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">

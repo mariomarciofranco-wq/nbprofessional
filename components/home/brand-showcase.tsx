@@ -34,7 +34,7 @@ export default function BrandShowcase({ className }: BrandShowcaseProps) {
     <Section
       title="Marcas Premium"
       subtitle="As melhores marcas profissionais em um só lugar"
-      spacing="md"
+      spacing="sm"
       background="cream"
       className={className}
     >

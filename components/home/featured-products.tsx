@@ -14,7 +14,7 @@ export default function FeaturedProducts({ className }: FeaturedProductsProps) {
     <Section
       title="Destaques"
       subtitle="Os produtos mais amados pelos nossos clientes"
-      spacing="md"
+      spacing="sm"
       className={className}
     >
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
