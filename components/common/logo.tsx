@@ -11,31 +11,30 @@ interface LogoProps {
   transparent?: boolean
 }
 
-const heightMap: Record<LogoSize, number> = {
-  sm: 36,
-  md: 46,
-  lg: 52,
+const sizeMap: Record<LogoSize, { width: number; height: number }> = {
+  sm: { width: 140, height: 36 },
+  md: { width: 180, height: 46 },
+  lg: { width: 200, height: 52 },
 }
 
 export function Logo({
   size = 'md',
   className,
 }: LogoProps) {
-  const h = heightMap[size]
+  const dims = sizeMap[size]
 
   return (
     <Link
       href="/"
-      className={cn('inline-flex items-center shrink-0 relative', className)}
-      style={{ height: h, width: 'auto' }}
+      className={cn('inline-flex items-center shrink-0', className)}
       title="NB Professional - Cosméticos Profissionais"
     >
       <Image
         src="/imagens/logo-oficial.png"
         alt="NB Professional - Cosméticos Profissionais"
-        fill
-        sizes="200px"
-        className="object-contain object-left"
+        width={dims.width}
+        height={dims.height}
+        className="object-contain"
         priority
       />
     </Link>
